@@ -10,12 +10,20 @@
 //   message = "Vue 3 Course";
 //   // h1.innerText = message;
 // }
-
 Vue.createApp({
   // template, data, methods
   data() {
     return {
       message: "Welcome To Vue3 Course",
+      count: 1,
     };
+  },
+  methods: {
+    increaseCount() {
+      this.count++;
+    },
+    decreaseCount() {
+      this.count--;
+    },
   },
 }).mount("#app");

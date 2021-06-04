@@ -9,7 +9,10 @@
   <body>
     <div id="app">
       <h1>{{message}}</h1>
-      <button>Click</button>
+      <button v-on:click="message = 'Vue 3 Course'">Click</button>
+      <p>Count: {{ count }}</p>
+      <button v-on:click="increaseCount">Increase Count</button>
+      <button v-on:click="decreaseCount">Decrease Count</button>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./script.js"></script>
