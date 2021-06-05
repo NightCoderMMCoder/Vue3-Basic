@@ -82,16 +82,24 @@
       <h1>Completed Todos</h1>
       <ul>
         <li
-          v-for="(todo, idx) in completedTodos"
+          v-for="todo in completedTodos"
           class="todo"
           v-bind:class="[ todo.completed ? 'completed': 'remain' ]"
           v-on:click="todo.completed = !todo.completed"
         >
           <span>{{ todo.task }}</span>
-          <button v-on:click.stop="handelDelete(idx)">Delete</button>
+          <button v-on:click.stop="handelDelete(todo.id)">Delete</button>
         </li>
       </ul>
       {{ fullName }}
+
+      <component-p title="Title 1"></component-p>
+      <component-p title="Title 2"></component-p>
+      <component-p title="Title 3"></component-p>
+      <component-p title="Title 4"></component-p>
+      <component-p title="Title 5"></component-p>
+      <component-p title="Title 6"></component-p>
+      <component-p title="Title 7"></component-p>
 
       <br />
       <br />

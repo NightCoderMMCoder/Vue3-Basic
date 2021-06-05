@@ -10,7 +10,33 @@
 //   message = "Vue 3 Course";
 //   // h1.innerText = message;
 // }
+// Pascal Case
+// ComponentP
+// Camel Case
+// componentP
+// Kebab Case
+// component-p
+const ComponentP = {
+  // template, data, methods
+  props: ["title"],
+  template: `
+  <h1>{{ title }}</h1>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+    tempora totam laboriosam neque autem similique ad explicabo nostrum? Aut
+    ab esse architecto dignissimos explicabo. Ex reiciendis quae maiores
+    atque nulla. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Laboriosam, harum similique ut consectetur modi obcaecati ad
+    necessitatibus ipsum ratione quam exercitationem quaerat natus provident
+    dignissimos aliquam esse quia adipisci voluptas!
+  </p>
+  `,
+};
+
 Vue.createApp({
+  components: {
+    "component-p": ComponentP,
+  },
   // template, data, methods
   data() {
     return {
