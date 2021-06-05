@@ -43,10 +43,31 @@ const ComponentP = {
     },
   },
 };
+const TodosList = {
+  props: ["title", "todos"],
+  emits: ["deleteTodo"],
+  template: `
+    <div v-if="todos.length > 0">
+      <h1>{{ title }}</h1>
+      <ul>
+        <li
+          v-for="todo in todos"
+          class="todo"
+          v-bind:class="[ todo.completed ? 'completed': 'remain' ]"
+          v-on:click="todo.completed = !todo.completed"
+        >
+          <span>{{ todo.task }}</span>
+          <button v-on:click.stop="$emit('deleteTodo', todo.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  `,
+};
 
 Vue.createApp({
   components: {
     "component-p": ComponentP,
+    "todos-list": TodosList,
   },
   // template, data, methods
   data() {
@@ -118,7 +139,7 @@ Vue.createApp({
       }
       this.text = e.target.value;
     },
-    handelDelete(id) {
+    handleDelete(id) {
       const idx = this.todos.findIndex((todo) => todo.id === id);
       this.todos.splice(idx, 1);
     },
