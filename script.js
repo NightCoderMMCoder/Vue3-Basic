@@ -26,19 +26,24 @@ Vue.createApp({
       text: "",
       todos: [
         {
+          id: 1,
           task: "Go Shopping",
           completed: false,
         },
         {
+          id: 2,
           task: "Buy Tickets",
           completed: false,
         },
         {
+          id: 3,
           task: "Game",
           completed: true,
         },
       ],
       formValidate: true,
+      firstName: "Aung Myat",
+      lastName: "Oo",
     };
   },
   methods: {
@@ -54,6 +59,7 @@ Vue.createApp({
     handleClick() {
       if (this.text) {
         let newTask = {
+          id: Math.floor(Math.random() * 1000000000000000),
           task: this.text,
           completed: false,
         };
@@ -70,8 +76,20 @@ Vue.createApp({
       }
       this.text = e.target.value;
     },
-    handelDelete(idx) {
+    handelDelete(id) {
+      const idx = this.todos.findIndex((todo) => todo.id === id);
       this.todos.splice(idx, 1);
+    },
+  },
+  computed: {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+    completedTodos() {
+      return this.todos.filter((todo) => todo.completed);
+    },
+    remainTodos() {
+      return this.todos.filter((todo) => !todo.completed);
     },
   },
 }).mount("#app");

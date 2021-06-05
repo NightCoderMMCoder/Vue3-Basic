@@ -67,9 +67,22 @@
         </form>
       </div>
       <small v-if="!formValidate" class="error">Please fill the task.</small>
+      <h1>Remain Todos</h1>
       <ul>
         <li
-          v-for="(todo, idx) in todos"
+          v-for="todo in remainTodos"
+          class="todo"
+          v-bind:class="[ todo.completed ? 'completed': 'remain' ]"
+          v-on:click="todo.completed = !todo.completed"
+        >
+          <span>{{ todo.task }}</span>
+          <button v-on:click.stop="handelDelete(todo.id)">Delete</button>
+        </li>
+      </ul>
+      <h1>Completed Todos</h1>
+      <ul>
+        <li
+          v-for="(todo, idx) in completedTodos"
           class="todo"
           v-bind:class="[ todo.completed ? 'completed': 'remain' ]"
           v-on:click="todo.completed = !todo.completed"
@@ -78,6 +91,7 @@
           <button v-on:click.stop="handelDelete(idx)">Delete</button>
         </li>
       </ul>
+      {{ fullName }}
 
       <br />
       <br />
