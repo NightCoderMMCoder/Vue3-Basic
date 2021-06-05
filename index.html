@@ -36,7 +36,10 @@
       <img :src="image" v-bind:alt="imageName" />
       <!-- <p v-bind:class="{like : isLike}">Thumb Up</p> -->
       <p v-bind:class="[ isLike ? 'like': 'default']">Thumb Up</p>
-      <button v-on:click="isLike = !isLike">Like</button>
+      <button v-on:click="isLike = !isLike">Like</button><br />
+      <!-- <input type="text" v-model="text" /> -->
+      <input type="text" v-bind:value="text" @input="updateText" />
+      <button v-on:click="handleClick">Click</button>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./script.js"></script>
