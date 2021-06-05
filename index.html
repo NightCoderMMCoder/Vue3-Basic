@@ -93,13 +93,11 @@
       </ul>
       {{ fullName }}
 
-      <component-p title="Title 1"></component-p>
-      <component-p title="Title 2"></component-p>
-      <component-p title="Title 3"></component-p>
-      <component-p title="Title 4"></component-p>
-      <component-p title="Title 5"></component-p>
-      <component-p title="Title 6"></component-p>
-      <component-p title="Title 7"></component-p>
+      <component-p
+        :title="title"
+        v-on:change-title="title = 'Something changed'"
+        :user="user"
+      ></component-p>
 
       <br />
       <br />

@@ -16,21 +16,32 @@
 // componentP
 // Kebab Case
 // component-p
+
 const ComponentP = {
   // template, data, methods
-  props: ["title"],
+  props: ["title", "user"],
+  emits: ["changeTitle"],
   template: `
-  <h1>{{ title }}</h1>
+  <h1>{{title}}</h1>
   <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-    tempora totam laboriosam neque autem similique ad explicabo nostrum? Aut
-    ab esse architecto dignissimos explicabo. Ex reiciendis quae maiores
-    atque nulla. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Laboriosam, harum similique ut consectetur modi obcaecati ad
-    necessitatibus ipsum ratione quam exercitationem quaerat natus provident
-    dignissimos aliquam esse quia adipisci voluptas!
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita hic
+    asperiores minus laudantium sit voluptas praesentium tenetur? Pariatur
+    doloribus fugit atque soluta earum fugiat? Voluptates, amet molestiae.
+    Qui, laborum modi. Lorem ipsum dolor sit amet consectetur adipisicing
+    elit. Est ipsam amet voluptatum, deserunt distinctio ducimus aliquid
+    quibusdam totam eum commodi. Labore molestias sit natus deleniti tenetur
+    tempore veniam officiis fuga.
   </p>
+  <button v-on:click="$emit('changeTitle')">Click Me</button>
+  <p>{{ user.name }} is {{ user.age }} years old.</p>
+  <button v-on:click="changeUser">Change User</button>
   `,
+  methods: {
+    changeUser() {
+      this.user.name = "Myo Thant Kyaw";
+      this.user.age = 40;
+    },
+  },
 };
 
 Vue.createApp({
@@ -70,6 +81,11 @@ Vue.createApp({
       formValidate: true,
       firstName: "Aung Myat",
       lastName: "Oo",
+      title: "This is title from parent",
+      user: {
+        name: "Aung Myat Oo",
+        age: 30,
+      },
     };
   },
   methods: {
