@@ -55,6 +55,7 @@ Vue.createApp({
       if (this.text) {
         let newTask = {
           task: this.text,
+          completed: false,
         };
         this.todos.push(newTask);
         this.text = "";
@@ -68,6 +69,9 @@ Vue.createApp({
         this.formValidate = true;
       }
       this.text = e.target.value;
+    },
+    handelDelete(idx) {
+      this.todos.splice(idx, 1);
     },
   },
 }).mount("#app");

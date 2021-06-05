@@ -24,6 +24,9 @@
         width: 200px;
         margin-bottom: 10px;
         border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .completed {
         background-color: rgb(0, 209, 80);
@@ -58,18 +61,21 @@
       <button v-on:click="isLike = !isLike">Like</button><br />
       <!-- <input type="text" v-model="text" /> -->
       <div>
-        <input type="text" v-bind:value="text" @input="updateText" />
-        <button v-on:click="handleClick">Click</button>
+        <form v-on:submit.prevent="handleClick">
+          <input type="text" v-bind:value="text" @input="updateText" />
+          <button type="submit">Click</button>
+        </form>
       </div>
       <small v-if="!formValidate" class="error">Please fill the task.</small>
       <ul>
         <li
-          v-for="todo in todos"
+          v-for="(todo, idx) in todos"
           class="todo"
           v-bind:class="[ todo.completed ? 'completed': 'remain' ]"
           v-on:click="todo.completed = !todo.completed"
         >
-          <span> {{ todo.task }} </span>
+          <span>{{ todo.task }}</span>
+          <button v-on:click.stop="handelDelete(idx)">Delete</button>
         </li>
       </ul>
 
