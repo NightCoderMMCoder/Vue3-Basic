@@ -24,6 +24,18 @@ Vue.createApp({
       imageName: "bgImage",
       isLike: false,
       text: "",
+      todos: [
+        {
+          task: "Go Shopping",
+        },
+        {
+          task: "Buy Tickets",
+        },
+        {
+          task: "Game",
+        },
+      ],
+      formValidate: true,
     };
   },
   methods: {
@@ -37,10 +49,21 @@ Vue.createApp({
       this.showText = show;
     },
     handleClick() {
-      console.log(this.text);
+      if (this.text) {
+        let newTask = {
+          task: this.text,
+        };
+        this.todos.push(newTask);
+        this.text = "";
+      }
       // this.$refs.task.style.borderColor = "red";
     },
     updateText(e) {
+      if (!e.target.value) {
+        this.formValidate = false;
+      } else {
+        this.formValidate = true;
+      }
       this.text = e.target.value;
     },
   },

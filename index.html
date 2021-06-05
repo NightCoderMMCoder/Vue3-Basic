@@ -12,6 +12,9 @@
       .default {
         color: grey;
       }
+      .error {
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -38,8 +41,39 @@
       <p v-bind:class="[ isLike ? 'like': 'default']">Thumb Up</p>
       <button v-on:click="isLike = !isLike">Like</button><br />
       <!-- <input type="text" v-model="text" /> -->
-      <input type="text" v-bind:value="text" @input="updateText" />
-      <button v-on:click="handleClick">Click</button>
+      <div>
+        <input type="text" v-bind:value="text" @input="updateText" />
+        <button v-on:click="handleClick">Click</button>
+      </div>
+      <small v-if="!formValidate" class="error">Please fill the task.</small>
+      <ul>
+        <li v-for="todo in todos">{{ todo.task }}</li>
+      </ul>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./script.js"></script>
