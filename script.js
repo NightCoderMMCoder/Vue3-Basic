@@ -14,8 +14,10 @@ Vue.createApp({
   // template, data, methods
   data() {
     return {
-      message: "Welcome To Vue3 Course",
+      message: "<p>Welcome To Vue3 Course</p>",
       count: 1,
+      fruit: "apple",
+      showText: false,
     };
   },
   methods: {
@@ -24,6 +26,9 @@ Vue.createApp({
     },
     decreaseCount() {
       this.count--;
+    },
+    handleShowText(show) {
+      this.showText = show;
     },
   },
 }).mount("#app");
