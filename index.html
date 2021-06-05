@@ -31,6 +31,12 @@
         Show Text
       </button>
       <button v-on:click="handleShowText(false)" v-else>Hide Text</button>
+      <br />
+      <a v-bind:href="googleLink">Google</a>
+      <img :src="image" v-bind:alt="imageName" />
+      <!-- <p v-bind:class="{like : isLike}">Thumb Up</p> -->
+      <p v-bind:class="[ isLike ? 'like': 'default']">Thumb Up</p>
+      <button v-on:click="isLike = !isLike">Like</button>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./script.js"></script>

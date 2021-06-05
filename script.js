@@ -18,6 +18,11 @@ Vue.createApp({
       count: 1,
       fruit: "apple",
       showText: false,
+      googleLink: "https://www.google.com/",
+      image:
+        "https://cdn.pixabay.com/photo/2018/08/24/18/28/background-3628553__340.jpg",
+      imageName: "bgImage",
+      isLike: false,
     };
   },
   methods: {
