@@ -27,12 +27,15 @@ Vue.createApp({
       todos: [
         {
           task: "Go Shopping",
+          completed: false,
         },
         {
           task: "Buy Tickets",
+          completed: false,
         },
         {
           task: "Game",
+          completed: true,
         },
       ],
       formValidate: true,

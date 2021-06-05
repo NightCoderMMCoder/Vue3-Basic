@@ -47,7 +47,14 @@
       </div>
       <small v-if="!formValidate" class="error">Please fill the task.</small>
       <ul>
-        <li v-for="todo in todos">{{ todo.task }}</li>
+        <li
+          v-for="todo in todos"
+          class="todo"
+          v-bind:class="[ todo.completed ? 'completed': 'remain' ]"
+          v-on:click="todo.completed = !todo.completed"
+        >
+          {{ todo.task }}
+        </li>
       </ul>
 
       <br />
